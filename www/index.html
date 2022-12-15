@@ -45,12 +45,12 @@
                     showResults(results);
                 })
         }
-/*
+
         function searchGradeLT() {
-            let level = parseInt($("#Grade").val());
+            let grade = parseInt($("#Grade").val());
             let TestDataClass = ncmb.DataStore(db);
             TestDataClass
-                .lessThan("Grade", level)
+                .lessThan("Grade", grade)
                 .fetchAll()
                 .then(function(results) {
                     showResults(results);
@@ -58,16 +58,16 @@
         }
 
         function searchGradeGT() {
-            let level = parseInt($("#Grade").val(), 10);
+            let grade = parseInt($("#Grade").val(), 10);
             let TestDataClass = ncmb.DataStore(db);
             TestDataClass
-                .greaterThan("Grade", level)
+                .greaterThan("Grade", grade)
                 .fetchAll()
                 .then(function(results) {
                     showResults(results);
                 })
         }
-*/
+
         function showResults(results) {
             // テーブルのヘッダを生成
             let msg = "<table><tr><th>name</th><th>grade</th><th></th><th></th></tr>";
@@ -90,14 +90,14 @@
 </head>
 
 <body>
-    <h1>mBaaS search</h1>
+    <h1>Nogizaka46</h1>
     <div>
         <label for="name">name:</label>
-        <input id="name" type="text" placeholder="monster name">
+        <input id="name" type="text" placeholder="member name">
     </div>
     <div>
-        <label for="level">level:</label>
-        <input id="level" type="number" placeholder="monster level">
+        <label for="grade">grade:</label>
+        <input id="grade" type="number" placeholder="member grade">
     </div>
     <div id="button">
         <button class="btn" onclick="fetchAll()">Fetch All</button>
