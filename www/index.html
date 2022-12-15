@@ -35,49 +35,51 @@
                 })
         }
 
-        function searchLevel() {
-            let level = parseInt($("#level").val());
+        function searchGrade() {
+            let grade = parseInt($("#Grade").val());
             let TestDataClass = ncmb.DataStore(db);
             TestDataClass
-                .equalTo("level", level)
+                .equalTo("Grade", grade)
+                .fetchAll()
+                .then(function(results) {
+                    showResults(results);
+                })
+        }
+/*
+        function searchGradeLT() {
+            let level = parseInt($("#Grade").val());
+            let TestDataClass = ncmb.DataStore(db);
+            TestDataClass
+                .lessThan("Grade", level)
                 .fetchAll()
                 .then(function(results) {
                     showResults(results);
                 })
         }
 
-        function searchLevelLT() {
-            let level = parseInt($("#level").val());
+        function searchGradeGT() {
+            let level = parseInt($("#Grade").val(), 10);
             let TestDataClass = ncmb.DataStore(db);
             TestDataClass
-                .lessThan("level", level)
+                .greaterThan("Grade", level)
                 .fetchAll()
                 .then(function(results) {
                     showResults(results);
                 })
         }
-
-        function searchLevelGT() {
-            let level = parseInt($("#level").val(), 10);
-            let TestDataClass = ncmb.DataStore(db);
-            TestDataClass
-                .greaterThan("level", level)
-                .fetchAll()
-                .then(function(results) {
-                    showResults(results);
-                })
-        }
-
+*/
         function showResults(results) {
             // テーブルのヘッダを生成
-            let msg = "<table><tr><th>name</th><th>Lvl</th><th>attack</th><th>defence</th></tr>";
+            let msg = "<table><tr><th>name</th><th>grade</th><th></th><th></th></tr>";
             for (let i = 0; i < results.length; i++) {
                 // 各データを収めた表の列を生成
                 msg += "<tr>";
                 msg += "<td>" + results[i].name + "</td>";
-                msg += "<td class='num'>" + results[i].level + "</td>";
+                msg += "<td class='num'>" + results[i].grade + "</td>";
+                /*
                 msg += "<td class='num'>" + results[i].attack + "</td>";
                 msg += "<td class='num'>" + results[i].defence + "</td>";
+                */
                 msg += "</tr>";
             }
             // テーブルのテイラを生成
@@ -101,9 +103,9 @@
         <button class="btn" onclick="fetchAll()">Fetch All</button>
         <button class="btn" onclick="searchName()">Name</button>
         <br>
-        <button class="btn" onclick="searchLevelLT()">Level &lt</button>
-        <button class="btn" onclick="searchLevel()">Level</button>
-        <button class="btn" onclick="searchLevelGT()">Level &gt</button>
+        <button class="btn" onclick="searchGradeLT()">Grade &lt</button>
+        <button class="btn" onclick="searchGrade()">Grade</button>
+        <button class="btn" onclick="searchGradeGT()">Grade &gt</button>
     </div>
     <div id="message">message area</div>
 </body>
