@@ -36,10 +36,10 @@
         }
 
         function searchGrade() {
-            let grade = parseInt($("#Grade").val());
+            let grade = parseInt($("#grade").val());
             let TestDataClass = ncmb.DataStore(db);
             TestDataClass
-                .equalTo("Grade", grade)
+                .equalTo("grade", grade)
                 .fetchAll()
                 .then(function(results) {
                     showResults(results);
@@ -47,10 +47,10 @@
         }
 
         function searchGradeLT() {
-            let grade = parseInt($("#Grade").val());
+            let grade = parseInt($("#grade").val());
             let TestDataClass = ncmb.DataStore(db);
             TestDataClass
-                .lessThan("Grade", grade)
+                .lessThan("grade", grade)
                 .fetchAll()
                 .then(function(results) {
                     showResults(results);
@@ -58,10 +58,10 @@
         }
 
         function searchGradeGT() {
-            let grade = parseInt($("#Grade").val(), 10);
+            let grade = parseInt($("#grade").val(), 10);
             let TestDataClass = ncmb.DataStore(db);
             TestDataClass
-                .greaterThan("Grade", grade)
+                .greaterThan("grade", grade)
                 .fetchAll()
                 .then(function(results) {
                     showResults(results);
